@@ -1,0 +1,30 @@
+ARCH_NODES = [
+    {"id": "aws", "icon": "fa-brands fa-aws", "name": "AWS",
+     "desc": "Cloud infrastructure and compute resources."},
+    {"id": "terraform", "icon": "fa-solid fa-cubes", "name": "Terraform",
+     "desc": "Infrastructure as code, provisioning and state management."},
+    {"id": "docker", "icon": "fa-brands fa-docker", "name": "Docker",
+     "desc": "Containerized workloads and local dev environments."},
+    {"id": "kubernetes", "icon": "fa-solid fa-dharmachakra", "name": "Kubernetes",
+     "desc": "Orchestration for containers at scale."},
+    {"id": "monitoring", "icon": "fa-solid fa-chart-line", "name": "Monitoring",
+     "desc": "Real-time metrics, dashboards, and alerts."},
+    {"id": "projects", "icon": "fa-solid fa-folder-open", "name": "Projects",
+     "desc": "Unified workspace for tracking engineering work."},
+    {"id": "docs", "icon": "fa-solid fa-file-lines", "name": "Documentation",
+     "desc": "Living docs tied directly to infrastructure."},
+    {"id": "cicd", "icon": "fa-solid fa-infinity", "name": "CI/CD",
+     "desc": "Automated pipelines for build, test, and deploy."},
+    {"id": "networking", "icon": "fa-solid fa-network-wired", "name": "Networking",
+     "desc": "VPCs, routing, and connectivity management."},
+    {"id": "infra", "icon": "fa-solid fa-server", "name": "Infrastructure",
+     "desc": "Core compute, storage, and platform resources."},
+]
+
+BOOT_SEQUENCE = [
+    "Initializing D-Worker...",
+    "Connecting Infrastructure...",
+    "Loading Kubernetes...",
+    "Connecting Monitoring...",
+    "Workspace Ready",
+]

@@ -1,4 +1,5 @@
 import json
+import os
 from nicegui import ui, app
 from data.icons import render_background_html
 from data.projects import PROJECTS
@@ -342,4 +343,5 @@ def main_page():
 
 app.add_static_files('/static', app_static_dir)
 
-ui.run(title="Dinesh Kannan — Portfolio", favicon="/static/dworker-favicon.png")
+ui.run(title="Dinesh Kannan — Portfolio", favicon="/static/dworker-favicon.png",
+       host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))

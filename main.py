@@ -1,5 +1,4 @@
 import json
-import os
 from nicegui import ui, app
 from data.icons import render_background_html
 from data.projects import PROJECTS
@@ -33,7 +32,7 @@ def render_navbar():
         ui.label("DINESH KANNAN").classes('font-bold text-lg tracking-wide')
         with ui.row().classes('gap-6 items-center'):
             for label, target in [
-                ("D-Worker", "#dworker"), ("About", "#about"), ("Experience", "#experience"),
+                ("About", "#about"), ("D-Worker", "#dworker"), ("Experience", "#experience"),
                 ("Work", "#projects"), ("Skills", "#skills"), ("Journey", "#journey"), ("Contact", "#contact")
             ]:
                 ui.link(label, target).classes('nav-link no-underline')
@@ -85,6 +84,16 @@ def render_hero():
                 with ui.column().classes('items-center'):
                     ui.label(stat).classes('text-2xl font-bold gradient-text')
                     ui.label(label).classes('text-xs text-gray-500')
+
+
+def render_about():
+    with ui.column().classes('content-layer w-full items-center py-20 px-6').props('id=about'):
+        with ui.row().classes('glass-card max-w-3xl w-full p-8 gap-8 items-start flex-wrap justify-center'):
+            ui.image(ABOUT["photo_url"]).classes('w-36 h-36 rounded-full object-cover')
+            with ui.column().classes('flex-1 min-w-[260px]'):
+                ui.label(ABOUT["greeting"]).classes('text-2xl font-bold mb-3')
+                for para in ABOUT["story"]:
+                    ui.label(para).classes('text-sm text-gray-600 leading-relaxed mb-3')
 
 
 def render_dworker_architecture():
@@ -144,16 +153,6 @@ def render_dworker():
 
         # Live architecture visualization
         render_dworker_architecture()
-
-
-def render_about():
-    with ui.column().classes('content-layer w-full items-center py-20 px-6').props('id=about'):
-        with ui.row().classes('glass-card max-w-3xl w-full p-8 gap-8 items-start flex-wrap justify-center'):
-            ui.image(ABOUT["photo_url"]).classes('w-36 h-36 rounded-full object-cover')
-            with ui.column().classes('flex-1 min-w-[260px]'):
-                ui.label(ABOUT["greeting"]).classes('text-2xl font-bold mb-3')
-                for para in ABOUT["story"]:
-                    ui.label(para).classes('text-sm text-gray-600 leading-relaxed mb-3')
 
 
 def render_experience():
@@ -329,8 +328,8 @@ def main_page():
     ui.html(render_background_html(24))
     render_navbar()
     render_hero()
-    render_dworker()
     render_about()
+    render_dworker()
     render_experience()
     render_projects()
     render_skills()
@@ -341,7 +340,9 @@ def main_page():
     render_footer()
 
 
+import os
 app.add_static_files('/static', app_static_dir)
 
-ui.run(title="Dinesh Kannan — Portfolio", favicon="/static/dworker-favicon.png",
+ui.run(title="Dinesh Kannan — Portfolio", favicon="static/dworker-favicon.png",
        host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+
